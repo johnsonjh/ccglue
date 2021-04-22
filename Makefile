@@ -1,8 +1,9 @@
 # .SUFFIXES: .C .o
 CXX := g++
+STRIP := strip
 # CXX := clang++
-# CXXFLAGS := -O2 -g -Wall -Werror
 CXXFLAGS := -g -Wall
+# CXXFLAGS := -O2 -g -Wall -Werror
 INCLUDES := -I include
 # CC       = gcc
 # CFLAGS   = -Wall
@@ -17,6 +18,7 @@ all: $(TARGET)
 
 $(TARGET): $(SRCFILE)
 	$(CXX) $(INCLUDES) $(CXXFLAGS)  -o $(TARGET) $(SRCFILE)
+	$(STRIP) --strip-unneeded $(TARGET)
 
 clean:
-	rm -f $(OBJFILES) $(TARGET)
+	rm -f $(TARGET)
