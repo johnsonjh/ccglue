@@ -1,6 +1,6 @@
 // debug.cpp
 #include "debug.h"
-#include "../config.h"
+#include "config.h"
 
 nullstream null;
 
