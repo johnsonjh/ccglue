@@ -77,6 +77,7 @@ RC_t process_cscope_files_to_build_sym_table (sym_table& a_sym_table,
 
     sym_scanner.initialize_rules();
     process_files_with_reader(rdr, a_sym_table, cscope_files, sym_scanner);
+    return RC_SUCCESS;
 }
 
 RC_t process_cscope_files_to_build_xrefs (sym_table& a_sym_table,
@@ -87,5 +88,6 @@ RC_t process_cscope_files_to_build_xrefs (sym_table& a_sym_table,
 
     xref_scanner.initialize_rules();
     process_files_with_reader(rdr, a_sym_table, cscope_files, xref_scanner);
+    return RC_SUCCESS;
 }
 

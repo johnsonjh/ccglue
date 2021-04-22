@@ -187,6 +187,7 @@ int digraph_compress_buf::sync()
         s_buf.sputc(traits_type::to_char_type(tmp_char));
         tmp_char = '\0';
     }
+    return 0;
 }
 
 digraph_compress_buf::int_type 

@@ -1,14 +1,26 @@
 # .SUFFIXES: .C .o
-CXX := g++
+# CXX := g++
+CXX := clang++
 STRIP := strip
-# CXX := clang++
-CXXFLAGS := -g -Wall
-# CXXFLAGS := -O2 -g -Wall -Werror
+CXXFLAGS := -std=c++11  -Wno-deprecated-declarations 
 INCLUDES := -I include
 # CC       = gcc
 # CFLAGS   = -Wall
 # LDFLAGS  = 
 TARGET   = ccglue
+
+ifndef MODE
+	# $(warning MODE not defined)
+	MODE = release
+endif
+$(info Compile Mode: $(MODE))
+
+ifeq ($(MODE), release)
+	CXXFLAGS += -O3 -Wl,--gc-sections
+else
+	CXXFLAGS += -g
+endif
+
 
 # OJBFILEES = OBJECTS
 SOURCEDIR = ./src
@@ -18,7 +30,9 @@ all: $(TARGET)
 
 $(TARGET): $(SRCFILE)
 	$(CXX) $(INCLUDES) $(CXXFLAGS)  -o $(TARGET) $(SRCFILE)
+ifeq ($(MODE), release)
 	$(STRIP) --strip-unneeded $(TARGET)
+endif
 
 clean:
 	rm -f $(TARGET)

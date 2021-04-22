@@ -67,6 +67,7 @@ bounded_streambuf::bounded_streambuf(std::streambuf *buf, int bound):
 int bounded_streambuf::setbound (int numc) 
 {
     m_bound = numc;
+    return 0;
 }
 
 

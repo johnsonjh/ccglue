@@ -90,6 +90,6 @@ int ccglue_parse_command_line_options (int argc, char **argv,
     /* Parse our arguments; every option seen by parse_opt will
        be reflected in arguments. */
     parse_options (argc, argv, opts);
-
+    return 0;
 }
 

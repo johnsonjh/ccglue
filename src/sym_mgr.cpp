@@ -73,7 +73,7 @@ bool sym_table::add_sym (sym_entry* a_sym_entry)
 
 sym_entry* sym_table::lookup (const std::string& sym_name)
 {
-    lookup(sym_name.c_str());
+    return lookup(sym_name.c_str());
 }
 
 sym_entry* sym_table::lookup (const char *sym_name) 
